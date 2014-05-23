@@ -1,23 +1,54 @@
 {{set . "title" "Home"}}
-{{template "header.html" .}}
+<!DOCTYPE html>
 
-<header class="hero-unit" style="background-color:#A9F16C">
+<html ng-app="tripsApp">
+  <head>
+    <title>{{.title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/public/css/leaflet.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+
+    <script src="/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/js/leaflet.js" type="text/javascript"></script>
+    <script src="/public/js/angular.js" type="text/javascript"></script>
+    <script src="/public/js/angular-leaflet-directive.min.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      var app = angular.module("tripsApp", ["leaflet-directive"]);
+
+      app.controller("SimpleMapController", [ '$scope', function($scope) {
+          angular.extend($scope, {
+              defaults: {
+                  scrollWheelZoom: false,
+                  lat: 48.8567,
+                  lng: 2.3508,
+                  zoom: 11
+              }
+          });
+      }]);
+    </script>
+    <style>
+    </style>
+
+  </head>
+
+  <body ng-controller="SimpleMapController">
+  <leaflet class='angular-leaflet-map' center="defaults"></leaflet>
+
   <div class="container">
     <div class="row">
-      <div class="hero-text">
-        <h1>It works!</h1>
-        <p></p>
+      <div class="span6">
+        {{template "flash.html" .}}
       </div>
     </div>
   </div>
-</header>
-
-<div class="container">
-  <div class="row">
-    <div class="span6">
-      {{template "flash.html" .}}
-    </div>
-  </div>
-</div>
-
-{{template "footer.html" .}}
+  {{if eq .RunMode "dev"}}
+    {{template "debug.html" .}}
+  {{end}}
+  </body>
+</html>

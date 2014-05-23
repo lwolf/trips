@@ -4,14 +4,22 @@
   <head>
     <title>{{.title}}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/leaflet.css">
     <link rel="shortcut icon" type="image/png" href="/public/img/favicon.png">
-    <script src="/public/js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/js/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/js/leaflet.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/js/angular.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/public/js/angular-leaflet-directive.min.js" type="text/javascript" charset="utf-8"></script>
     {{range .moreStyles}}
       <link rel="stylesheet" type="text/css" href="/public/{{.}}">
     {{end}}
     {{range .moreScripts}}
       <script src="/public/{{.}}" type="text/javascript" charset="utf-8"></script>
     {{end}}
+    <script type="text/javascript">
+      var app = angular.module("tripsApp", ["leaflet-directive"]);
+      var map = L.map('map').setView([51.505, -0.09], 13);
+    </script>
   </head>
   <body>

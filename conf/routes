@@ -6,8 +6,15 @@ module:testrunner
 
 GET     /                                       App.Index
 
+GET     /trips                                  Trip.List
+POST    /trips                                  Trip.Create
+GET     /trips/:id                              Trip.View
+PUT     /trips/:id                              Trip.Update
+DELETE  /trips/:id                              Trip.Delete
+
+
 # Ignore favicon requests
-GET     /favicon.ico                            404
+GET     /favicon.ico                            Static.Serve("public","img/favicon.png")
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/*filepath                       Static.Serve("public")
