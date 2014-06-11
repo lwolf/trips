@@ -4,3 +4,67 @@ body, html {
 .angular-leaflet-map {
     height: 100%;
 }
+.content{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    text-align: center;
+}
+.create_trip_wrapper{
+    margin: 20px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #999;
+}
+
+
+.transport-icon{
+    background-image: url('/public/img/transport-icons.png');
+    background-repeat: no-repeat;
+    display: block;
+}
+.transport-icon--boat {
+    width: 32px;
+    height: 32px;
+    background-position: -5px -5px;
+}
+
+.transport-icon--bus {
+    width: 32px;
+    height: 32px;
+    background-position: -47px -5px;
+}
+
+.transport-icon--car {
+    width: 32px;
+    height: 32px;
+    background-position: -89px 0px;
+}
+
+.transport-icon--plane {
+    width: 32px;
+    height: 32px;
+    background-position: -131px -3px;
+}
+
+.transport-icon--train {
+    width: 32px;
+    height: 32px;
+    background-position: -173px -5px;
+}
+
+
+.new-trip-form__name--input{
+    font-size: 1.2em;
+    height: 45px;
+}
+.new-trip-form__name--lbl {
+    font-size: 1.3em;
+    display: block;
+    padding: 7px 0;
+}
+.new-trip-form__transport-selector{
+    text-align: right;
+}
